@@ -6,7 +6,7 @@ public class MTF {
     // 1 if it was the first element in the list
     // until n+1 if element is not found
     //we also put the elment that was found to the head of the list
-    public static ReturnValues getElement(ListNode l, int elementValue) {
+    public static ReturnValues GetElement(ListNode l, int elementValue) {
         ReturnValues rv = new ReturnValues();
         rv.head=null;
         rv.counter=0;

@@ -1,17 +1,15 @@
 public class Implementation {
 
     public static void main(String[] args) {
-        ListNode node = new ListNode(10);
-        ListNode nextNode = new ListNode(20);
-        node.next=nextNode;
-        System.out.println(node.next.getValue());
-        System.out.println(node.listLength());
-        ListNode l = ListNode.generateList(10);
-        ListNode.printList(l);
         RequestSequence rs = new RequestSequence();
-        rs.GenerateConsecutiveQueue(20,0);
-        RequestSequence.PrintSequence(rs);
-        rs.ShuffleSequence(100);
-        RequestSequence.PrintSequence(rs);
+        rs.GenerateConsecutiveQueue(10000,0);
+        //RequestSequence.PrintSequence(rs);
+
+        ListNode l = ListNode.generateList(10000);
+        //ListNode.printList(l);
+
+        ReturnValues rv = RequestSequence.serveQueueMTF(rs, l);
+        System.out.println(rv.counter); //if we have 100 elements the average access is (10*11)/2, my response was 45, -1 less somehow
+        //ListNode.printList(rv.head);
     }
 }

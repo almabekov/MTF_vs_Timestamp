@@ -46,7 +46,7 @@ public class RequestSequence {
         return this.sequence.size();
     }
 
-    public void addElement(int e) {
+    public void AddElement(int e) {
         this.sequence.add(e);
     }
 
@@ -62,20 +62,8 @@ public class RequestSequence {
     public void GenerateConsecutiveQueue(int size, int start) {
 
         for (int i = 0; i < size; i++) {
-            this.addElement(i+start);
+            this.AddElement(i+start);
         }
-    }
-
-    //serve queue q for the list l using MTF method and return total number of accesses
-    public static ReturnValues serveQueueMTF(RequestSequence rs, ListNode l)
-    {
-        ReturnValues rv = new ReturnValues();
-        rv.counter=0;
-        rv.head=l;
-
-
-
-        return rv;
     }
 
     //print sequence, and then reset index to 0
@@ -96,4 +84,29 @@ public class RequestSequence {
     public void ShuffleSequence(int seed) {
         Collections.shuffle(this.sequence, new Random(seed));
     }
+
+    //serve queue q for the list l using MTF method and return total number of accesses
+    public static ReturnValues serveQueueMTF(RequestSequence rs, ListNode l)
+    {
+        ReturnValues rv = new ReturnValues();
+        rv.counter=0;
+        rv.head=l;
+        ReturnValues temp;
+        if (l==null) return rv;
+        if (rs.getSize()==0) return rv;
+        temp=MTF.GetElement(l,rs.GetElement());
+        l=temp.head;
+        rv.counter+=temp.counter;
+        while(rs.Next()) {
+            //serve all sequence here
+            temp=MTF.GetElement(l,rs.GetElement());
+            l=temp.head;
+            rv.counter+=temp.counter;
+        }
+        rv.head=l;
+        rs.ResetIndex();
+        return rv;
+    }
+
+
 }
