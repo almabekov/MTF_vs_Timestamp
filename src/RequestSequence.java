@@ -2,6 +2,8 @@
 //we can create new request queue and add elements to it
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class RequestSequence {
     //here we store sequence elements
@@ -17,7 +19,7 @@ public class RequestSequence {
 
     //check if there are elements in the sequence
     public boolean HasNext() {
-        if (currentIndex<sequence.size()) return true;
+        if (currentIndex<sequence.size()-1) return true;
         return false;
     }
 
@@ -49,7 +51,7 @@ public class RequestSequence {
     }
 
     //merge two request queues and return the resulted queue
-    public RequestSequence MergeQueues(RequestSequence rs1, RequestSequence rs2) {
+    public static RequestSequence MergeQueues(RequestSequence rs1, RequestSequence rs2) {
         RequestSequence newRq = new RequestSequence();
         if (rs1.sequence.size()>0) newRq.sequence.addAll(rs1.sequence);
         if (rs2.sequence.size()>0) newRq.sequence.addAll(rs2.sequence);
@@ -57,26 +59,41 @@ public class RequestSequence {
     }
 
     //generate queue of size size starting with value start and maximum value of start+size-1
-    public RequestSequence GenerateConsecutiveQueue(int size, int start) {
-        RequestSequence rs = new RequestSequence();
-        for (int i = start; i < size; i++) {
-            rs.sequence.add(i);
+    public void GenerateConsecutiveQueue(int size, int start) {
+
+        for (int i = 0; i < size; i++) {
+            this.addElement(i+start);
         }
-        return rs;
     }
 
-//serve queue q for the list l using MTF method and return total number of accesses
-    public static int serveQueueMTF(RequestSequence rs, ListNode l) {
-        return 0;
+    //serve queue q for the list l using MTF method and return total number of accesses
+    public static ReturnValues serveQueueMTF(RequestSequence rs, ListNode l)
+    {
+        ReturnValues rv = new ReturnValues();
+        rv.counter=0;
+        rv.head=l;
+
+
+
+        return rv;
     }
 
     //print sequence, and then reset index to 0
     public static void PrintSequence(RequestSequence rs) {
-        if (rs!=null) System.out.print(rs.sequence.get(rs.currentIndex));
+        if (rs!=null && rs.sequence.size()>0) System.out.print(rs.sequence.get(rs.currentIndex)+" ");
         while (rs.HasNext()) {
             rs.Next();
-            System.out.print(rs.sequence.get(rs.currentIndex));
+            System.out.print(rs.sequence.get(rs.currentIndex)+" ");
         }
+        System.out.println();
         rs.ResetIndex();
+    }
+
+    //shuffle sequence randomly
+    //use int seed for random generator seed value
+    //with help from this source
+    //https://stackoverflow.com/questions/6284589/setting-a-seed-to-shuffle-arraylist-in-java-deterministically
+    public void ShuffleSequence(int seed) {
+        Collections.shuffle(this.sequence, new Random(seed));
     }
 }

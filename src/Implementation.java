@@ -8,6 +8,10 @@ public class Implementation {
         System.out.println(node.listLength());
         ListNode l = ListNode.generateList(10);
         ListNode.printList(l);
-
+        RequestSequence rs = new RequestSequence();
+        rs.GenerateConsecutiveQueue(20,0);
+        RequestSequence.PrintSequence(rs);
+        rs.ShuffleSequence(100);
+        RequestSequence.PrintSequence(rs);
     }
 }

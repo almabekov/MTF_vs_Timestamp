@@ -25,7 +25,6 @@ public class MTF {
             rv.head=l.next;
             l.next=l.next.next;
             rv.head.next=oldhead;
-
         }
         return rv;
     }
