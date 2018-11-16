@@ -94,12 +94,14 @@ public class RequestSequence {
         ReturnValues temp;
         if (l==null) return rv;
         if (rs.getSize()==0) return rv;
-        temp=MTF.GetElement(l,rs.GetElement());
+        temp=MTF.GetElement(l,rs.GetElement(),1);
         l=temp.head;
         rv.counter+=temp.counter;
+        int sequence=1;
         while(rs.Next()) {
+            sequence++;
             //serve all sequence here
-            temp=MTF.GetElement(l,rs.GetElement());
+            temp=MTF.GetElement(l,rs.GetElement(),sequence);
             l=temp.head;
             rv.counter+=temp.counter;
         }

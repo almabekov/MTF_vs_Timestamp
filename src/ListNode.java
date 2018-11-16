@@ -5,7 +5,7 @@ public class ListNode {
 
     ListNode(int value) {
         this.value=value;
-        lastAccess=Integer.MAX_VALUE;
+        lastAccess=-1;
     }
 
     public int getValue() {
@@ -56,7 +56,7 @@ public class ListNode {
     public static void printList(ListNode l) {
         if (l==null) return;
         while (l!=null) {
-            System.out.print(l.getValue()+" ");
+            System.out.print(l.getValue()+"("+l.getLastAccess()+") ");
             l=l.next;
         }
         System.out.println();
