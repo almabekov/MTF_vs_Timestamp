@@ -43,10 +43,11 @@ public class Timestamp {
             //we should swap element only if it was requested at least once before
             //we need to search from the beginning where we should paste our element
             if (ourElement.getLastAccess()!=-1) {
-                System.out.println("element with last time -1 accessed");
+                System.out.println("element with last time not equal -1 accessed");
                 ListNode tempHead = oldhead;
                 //if we should put requested element as a new head
                 if (tempHead.getLastAccess() < lastAccess) {
+                    System.out.println("We should switch our element with head element");
                     rv.head = ourElement;
                     previousElement.next=ourElement.next;
                     ourElement.next=oldhead;
@@ -61,10 +62,16 @@ public class Timestamp {
                     //if we found such element between head and our element it is tempHead.next
 
                     if (tempHead.next != null) {
+                        //if we swap two consecutive elements
+                        if (tempHead.next.next==ourElement) {
+                            tempHead.next.next=ourElement.next;
+                        }
                         ourElement.next = tempHead.next;
                         tempHead.next = ourElement;
                     }
                 }
+            } else {
+                System.out.println("Element with last access time -1 accessed. No specific actions needed.");
             }
             ourElement.setLastAccess(sequence);
         }

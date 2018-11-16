@@ -17,11 +17,29 @@ public class Implementation {
         ListNode.printList(rv.head);
         */
 
-        Timestamp.GetElement(l,0,1);
+        ReturnValues rv = new ReturnValues();
+        rv=Timestamp.GetElement(l,0,1);
+        l=rv.head;
         ListNode.printList(l);
-        Timestamp.GetElement(l,9,2);
+        rv=Timestamp.GetElement(l,1,2);
+        l=rv.head;
         ListNode.printList(l);
-        //Timestamp.GetElement(l,9,3);
-        //ListNode.printList(l);
+
+        rv=Timestamp.GetElement(l,9,3);
+        l=rv.head;
+        ListNode.printList(l);
+
+        rv=Timestamp.GetElement(l,9,4);
+        l=rv.head;
+        ListNode.printList(l);
+
+        rv=Timestamp.GetElement(l,1,5);
+        l=rv.head;
+        ListNode.printList(l);
+
+        rv=Timestamp.GetElement(l,1,6);
+        l=rv.head;
+        ListNode.printList(l);
+        
     }
 }
