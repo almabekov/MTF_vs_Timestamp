@@ -19,7 +19,7 @@ public class Timestamp {
         //if our element already is the head
         //we only update sequence and return the same list;
         if (l.getValue()==elementValue) {
-            System.out.println("Head element accessed");
+            //System.out.println("Head element accessed");
             l.setLastAccess(sequence);
             return rv;
         }
@@ -43,17 +43,18 @@ public class Timestamp {
             //we should swap element only if it was requested at least once before
             //we need to search from the beginning where we should paste our element
             if (ourElement.getLastAccess()!=-1) {
-                System.out.println("element with last time not equal -1 accessed");
+                //System.out.println("element with last time not equal -1 accessed");
                 ListNode tempHead = oldhead;
+                previousElement.next=ourElement.next;
                 //if we should put requested element as a new head
                 if (tempHead.getLastAccess() < lastAccess) {
-                    System.out.println("We should switch our element with head element");
+                    //System.out.println("We should switch our element with head element");
                     rv.head = ourElement;
-                    previousElement.next=ourElement.next;
+                    //previousElement.next=ourElement.next;
                     ourElement.next=oldhead;
                     return rv;
                 } else {
-                    System.out.println("Element that is not head and with last access not -1 accessed");
+                    //System.out.println("Element that is not head and with last access not -1 accessed");
                     //search for the closest to the head element, that was accessed before the current element was accessed last time
                     while (tempHead.next != null && tempHead.next.getLastAccess() > lastAccess) {
                         tempHead = tempHead.next;
@@ -63,15 +64,17 @@ public class Timestamp {
 
                     if (tempHead.next != null) {
                         //if we swap two consecutive elements
+                        /*
                         if (tempHead.next.next==ourElement) {
                             tempHead.next.next=ourElement.next;
                         }
+                        */
                         ourElement.next = tempHead.next;
                         tempHead.next = ourElement;
                     }
                 }
             } else {
-                System.out.println("Element with last access time -1 accessed. No specific actions needed.");
+                //System.out.println("Element with last access time -1 accessed. No specific actions needed.");
             }
             ourElement.setLastAccess(sequence);
         }

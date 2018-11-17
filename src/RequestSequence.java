@@ -110,5 +110,28 @@ public class RequestSequence {
         return rv;
     }
 
+    public static ReturnValues serveQueueDetermenisticTimestamp(RequestSequence rs, ListNode l)
+    {
+        ReturnValues rv = new ReturnValues();
+        rv.counter=0;
+        rv.head=l;
+        ReturnValues temp;
+        if (l==null) return rv;
+        if (rs.getSize()==0) return rv;
+        temp=Timestamp.GetElement(l,rs.GetElement(),1);
+        l=temp.head;
+        rv.counter+=temp.counter;
+        int sequence=1;
+        while(rs.Next()) {
+            sequence++;
+            //serve all sequence here
+            temp=Timestamp.GetElement(l,rs.GetElement(),sequence);
+            l=temp.head;
+            rv.counter+=temp.counter;
+        }
+        rv.head=l;
+        rs.ResetIndex();
+        return rv;
+    }
 
 }
