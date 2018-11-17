@@ -21,6 +21,15 @@ public class Implementation {
         System.out.println(rvTimestamp.counter); //if we have 100 elements the average access is (10*11)/2, my response was 45, -1 less somehow
         ListNode.printList(rvTimestamp.head);
 
+        System.out.println("Probabilistic Timestamp test");
+        RequestSequence rsPrTimestamp = new RequestSequence();
+        rsPrTimestamp.GenerateConsecutiveQueue(10,0);
+        ListNode lPrTimestamp = ListNode.generateList(10);
+        ListNode.printList(lPrTimestamp);
+        ReturnValues rvPrTimestamp = RequestSequence.serveQueueProbabilisticTimestamp(rsPrTimestamp, lPrTimestamp,0.5f);
+        System.out.println(rvPrTimestamp.counter); //if we have 100 elements the average access is (10*11)/2, my response was 45, -1 less somehow
+        ListNode.printList(rvPrTimestamp.head);
+
         /*
         ReturnValues rv = new ReturnValues();
         rv=Timestamp.GetElement(l,0,1);
