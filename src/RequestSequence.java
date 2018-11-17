@@ -66,6 +66,14 @@ public class RequestSequence {
         }
     }
 
+    public void GenerateRandomSequence(int size, int maxValue, int seed) {
+        Random rand=new Random();
+        rand.setSeed(seed);
+        for (int i=0;i<size;i++) {
+            this.AddElement(rand.nextInt(maxValue));
+        }
+    }
+
     //print sequence, and then reset index to 0
     public static void PrintSequence(RequestSequence rs) {
         if (rs!=null && rs.sequence.size()>0) System.out.print(rs.sequence.get(rs.currentIndex)+" ");

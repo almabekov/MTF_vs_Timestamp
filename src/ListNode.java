@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class ListNode {
     private int value;
     private int lastAccess;
@@ -60,5 +62,21 @@ public class ListNode {
             l=l.next;
         }
         System.out.println();
+    }
+
+    //generate list of size n, with the maximum possible value of element maxValue
+    public static ListNode generateRandomList(int n, int maxValue, int seed) {
+        if (n < 1) return null;
+        Random rand = new Random();
+        rand.setSeed(seed);
+        ListNode head = new ListNode(rand.nextInt(maxValue));
+        ListNode pointer = head;
+        n--;
+        while (n > 0) {
+            pointer.next = new ListNode(rand.nextInt(maxValue));
+            pointer = pointer.next;
+            n--;
+        }
+        return head;
     }
 }
