@@ -18,6 +18,7 @@ public class Timestamp {
         ListNode oldhead=l;
         //if our element already is the head
         //we only update sequence and return the same list;
+        //System.out.println("Head value is "+l.getValue()+" we are looking for "+elementValue);
         if (l.getValue()==elementValue) {
             //System.out.println("Head element accessed");
             l.setLastAccess(sequence);
@@ -50,6 +51,7 @@ public class Timestamp {
                 if (tempHead.getLastAccess() < lastAccess) {
                     //System.out.println("We should switch our element with head element");
                     rv.head = ourElement;
+                    rv.head.setLastAccess(sequence);
                     //previousElement.next=ourElement.next;
                     ourElement.next=oldhead;
                     return rv;

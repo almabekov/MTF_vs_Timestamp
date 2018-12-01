@@ -4,6 +4,8 @@ import java.util.Random;
 public class Implementation {
 
     public static void main(String[] args) {
+
+
         System.out.println("MTF test");
         RequestSequence rsMTF = new RequestSequence();
         rsMTF.GenerateConsecutiveQueue(10,0);
@@ -51,8 +53,11 @@ public class Implementation {
         System.out.println("Deterministic Timestamp result "+rvTimestampD1.counter);
         System.out.println("Probabilistic Timestamp result "+rvTimestampP1.counter);
 
-        /*
-        ReturnValues rv = new ReturnValues();
+
+        ListNode l = new ListNode(0);
+        l = ListNode.generateList(6);
+
+        ReturnValues rv;
         rv=Timestamp.GetElement(l,0,1);
         l=rv.head;
         ListNode.printList(l);
@@ -60,11 +65,11 @@ public class Implementation {
         l=rv.head;
         ListNode.printList(l);
 
-        rv=Timestamp.GetElement(l,9,3);
+        rv=Timestamp.GetElement(l,5,3);
         l=rv.head;
         ListNode.printList(l);
 
-        rv=Timestamp.GetElement(l,9,4);
+        rv=Timestamp.GetElement(l,5,4);
         l=rv.head;
         ListNode.printList(l);
 
@@ -75,6 +80,6 @@ public class Implementation {
         rv=Timestamp.GetElement(l,1,6);
         l=rv.head;
         ListNode.printList(l);
-        */
+
     }
 }
