@@ -143,7 +143,7 @@ public class RequestSequence {
     }
 
     //with probability p execute MTF request, with probability 1-p execute deterministic timestamp request
-    public static ReturnValues serveQueueProbabilisticTimestamp(RequestSequence rs, ListNode l, float probability)
+    public static ReturnValues serveQueueProbabilisticTimestamp(RequestSequence rs, ListNode l, float probability, int seed)
     {
 
         ReturnValues rv = new ReturnValues();
@@ -155,7 +155,7 @@ public class RequestSequence {
         }
 
         Random rand = new Random();
-
+        rand.setSeed(seed);
         rv.counter=0;
         rv.head=l;
         ReturnValues temp;
