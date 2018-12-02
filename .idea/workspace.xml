@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c6248b5-35fd-4f8a-87a8-6eb0536eb554" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Implementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Implementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RequestSequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestSequence.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="Implementation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Implementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="68" column="48" lean-forward="true" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+            <state relative-caret-position="342">
+              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -245,12 +243,12 @@
       <workItem from="1542416057375" duration="3624000" />
       <workItem from="1542723418054" duration="31000" />
       <workItem from="1543679401755" duration="2135000" />
-      <workItem from="1543714036151" duration="3050000" />
+      <workItem from="1543714036151" duration="3942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24806000" />
+    <option name="totallyTimeSpent" value="25698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -704,8 +702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Implementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="68" column="48" lean-forward="true" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+        <state relative-caret-position="342">
+          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

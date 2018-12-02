@@ -39,7 +39,7 @@ public class Implementation {
         System.out.println(rvPrTimestamp.counter); //if we have 100 elements the average access is (10*11)/2, my response was 45, -1 less somehow
         ListNode.printList(rvPrTimestamp.head);
 
-
+        //Test 2
         System.out.println("Test 2. List of 0-999, sequence 0-100 two times shuffled");
         lMTF = ListNode.generateList(1000);
         lTimestamp = ListNode.generateList(1000);
@@ -73,6 +73,45 @@ public class Implementation {
         TimestampPTest2combined.ShuffleSequence(0);
         ReturnValues TimestampPTest2 = RequestSequence.serveQueueProbabilisticTimestamp(TimestampPTest2combined,lPrTimestamp,0.5f,0);
         System.out.println("Timestamp probabilistic count: "+TimestampPTest2.counter);
+
+
+        //Test 3
+        System.out.println("Test 3. List of 0-999, sequence 0-999 two times shuffled");
+        lMTF = ListNode.generateList(1000);
+        lTimestamp = ListNode.generateList(1000);
+        lPrTimestamp = ListNode.generateList(1000);
+        //MTF
+        RequestSequence MTFtest3part1 = new RequestSequence();
+        RequestSequence MTFtest3part2 = new RequestSequence();
+        MTFtest3part1.GenerateConsecutiveQueue(1000,0);
+        MTFtest3part2.GenerateConsecutiveQueue(1000,0);
+        RequestSequence MTFtest3combined=RequestSequence.MergeQueues(MTFtest3part1,MTFtest3part2);
+        MTFtest3combined.ShuffleSequence(0);
+        ReturnValues MTFtest3 = RequestSequence.serveQueueMTF(MTFtest3combined,lMTF);
+        System.out.println("MTF count: "+MTFtest3.counter);
+
+        //Timestamp
+        RequestSequence TimestampTest3part1 = new RequestSequence();
+        RequestSequence TimestampTest3part2 = new RequestSequence();
+        TimestampTest3part1.GenerateConsecutiveQueue(1000,0);
+        TimestampTest3part2.GenerateConsecutiveQueue(1000,0);
+        RequestSequence TimestampTest3combined=RequestSequence.MergeQueues(TimestampTest3part1,TimestampTest3part2);
+        TimestampTest3combined.ShuffleSequence(0);
+        ReturnValues TimestampTest3 = RequestSequence.serveQueueDetermenisticTimestamp(TimestampTest3combined,lTimestamp);
+        System.out.println("Timestamp count: "+TimestampTest3.counter);
+
+        //Timestamp probabilistic
+        RequestSequence TimestampPTest3part1 = new RequestSequence();
+        RequestSequence TimestampPTest3part2 = new RequestSequence();
+        TimestampPTest3part1.GenerateConsecutiveQueue(1000,0);
+        TimestampPTest3part2.GenerateConsecutiveQueue(1000,0);
+        RequestSequence TimestampPTest3combined=RequestSequence.MergeQueues(TimestampPTest3part1,TimestampPTest3part2);
+        TimestampPTest3combined.ShuffleSequence(0);
+        ReturnValues TimestampPTest3 = RequestSequence.serveQueueProbabilisticTimestamp(TimestampPTest3combined,lPrTimestamp,0.5f,0);
+        System.out.println("Timestamp probabilistic count: "+TimestampPTest3.counter);
+
+
+
 
 
         ListNode l = new ListNode(0);
