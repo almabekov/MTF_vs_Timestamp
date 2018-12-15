@@ -238,4 +238,40 @@ public class RequestSequence {
         }
         return rs;
     }
+
+
+    public static ReturnValues serveQueueDetermenisticTimestampImproved(RequestSequence rs, ListNode l)
+    {
+
+        //first we need to calculate the length of the list
+        ListNode tail=l;
+        int listSize=1;
+        while (tail.next!=null) {
+            listSize++;
+            tail=tail.next;
+        }
+
+        System.out.println("List size is: "+listSize);
+
+        ReturnValues rv = new ReturnValues();
+        rv.counter=0;
+        rv.head=l;
+        ReturnValues temp;
+        if (l==null) return rv;
+        if (rs.getSize()==0) return rv;
+        temp=Timestamp.GetElementImproved(l,rs.GetElement(),1,listSize,tail);
+        l=temp.head;
+        rv.counter+=temp.counter;
+        int sequence=1;
+        while(rs.Next()) {
+            sequence++;
+            //serve all sequence here
+            temp=Timestamp.GetElementImproved(l,rs.GetElement(),sequence,listSize,tail);
+            l=temp.head;
+            rv.counter+=temp.counter;
+        }
+        rv.head=l;
+        rs.ResetIndex();
+        return rv;
+    }
 }

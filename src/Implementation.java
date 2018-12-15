@@ -304,9 +304,38 @@ public class Implementation {
         System.out.println("Timestamp probabilistic cost to serve a news: "+rvBookPTimestamp.counter);
 
 
-        //probabilistic sequence
-        RequestSequence rs = RequestSequence.GenerateProbabilisticSequence(10,30,0);
-        RequestSequence.PrintSequence(rs);
+        //probabilistic sequence test
+        //MTF
+        RequestSequence rs = RequestSequence.GenerateProbabilisticSequence(1000,100000,0);
+        //RequestSequence.PrintSequence(rs);
+        list = ListNode.generateList(1000);
+        rvMTF=RequestSequence.serveQueueMTF(rs,list);
+        System.out.println("MTF cost of probabilistic sequence: "+rvMTF.counter);
+
+        //Timestamp
+        rs = RequestSequence.GenerateProbabilisticSequence(1000,100000,0);
+        //RequestSequence.PrintSequence(rs);
+        list = ListNode.generateList(1000);
+        rvTimestamp=RequestSequence.serveQueueDetermenisticTimestamp(rs,list);
+        System.out.println("Timestamp cost of probabilistic sequence: "+rvTimestamp.counter);
+
+        //probabilistic timestamp
+        rs = RequestSequence.GenerateProbabilisticSequence(1000,100000,0);
+        //RequestSequence.PrintSequence(rs);
+        list = ListNode.generateList(1000);
+        rvPrTimestamp=RequestSequence.serveQueueProbabilisticTimestamp(rs,list,0.5f,0);
+        System.out.println("Probabilistic timestamp cost of probabilistic sequence: "+rvPrTimestamp.counter);
+
+
+        //deterministic timestamp improved
+        rs = RequestSequence.GenerateProbabilisticSequence(1000,100000,0);
+        //RequestSequence.PrintSequence(rs);
+        list = ListNode.generateList(1000);
+        rvTimestamp=RequestSequence.serveQueueDetermenisticTimestampImproved(rs,list);
+        System.out.println("Deterministic timestamp improved cost of probabilistic sequence: "+rvTimestamp.counter);
+
+
     }
+
 
 }

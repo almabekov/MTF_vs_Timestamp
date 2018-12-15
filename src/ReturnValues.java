@@ -3,4 +3,6 @@
 public class ReturnValues {
     int counter=0;
     ListNode head=null;
+    //for the improved version of timestamp we need to monitor tail
+    ListNode tail=null;
 }
