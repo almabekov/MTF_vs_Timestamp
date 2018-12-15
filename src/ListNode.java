@@ -92,7 +92,7 @@ public class ListNode {
             HashSet<Integer> alphabet = new HashSet<Integer>();
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             int character;
-            while ((character = reader.read()) != 0)
+            while ((character = reader.read()) != -1)
             {
                 //System.out.println(character);
                 if (!alphabet.contains(character)) {
@@ -100,9 +100,11 @@ public class ListNode {
                 }
             }
             System.out.println("Alphabet size is: "+alphabet.size());
+            /*
             for (Integer i : alphabet) {
                 System.out.println(i);
             }
+            */
             reader.close();
             if (alphabet.size()==0) return null;
             head = l;

@@ -1,3 +1,5 @@
+import sun.misc.Request;
+
 public class Implementation {
 
     public static void main(String[] args) {
@@ -233,8 +235,28 @@ public class Implementation {
 
 
     //Calgary corpus test
+
+        //MTF
         ListNode lbook = ListNode.GenerateListFromFile("book1");
         System.out.println("Printing the book alphabet");
-        ListNode.printList(lbook);
+        RequestSequence rsBook = RequestSequence.GenerateSequenceFromFile("book1");
+        ReturnValues rvBookMTF = RequestSequence.serveQueueMTF(rsBook,lbook);
+        System.out.println("MTF cost to serve a book: "+rvBookMTF.counter);
+
+        //Timestamp
+        lbook = ListNode.GenerateListFromFile("book1");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("book1");
+        ReturnValues rvBookTimestamp = RequestSequence.serveQueueDetermenisticTimestamp(rsBook,lbook);
+        System.out.println("Timestamp cost to serve a book: "+rvBookTimestamp.counter);
+
+        //Probabilistic Timestamp
+        lbook = ListNode.GenerateListFromFile("book1");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("book1");
+        ReturnValues rvBookPTimestamp = RequestSequence.serveQueueProbabilisticTimestamp(rsBook,lbook,0.5f,0);
+        System.out.println("Timestamp probabilistic cost to serve a book: "+rvBookPTimestamp.counter);
+
     }
+
 }

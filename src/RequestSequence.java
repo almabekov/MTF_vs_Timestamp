@@ -1,8 +1,11 @@
 //collection of the elements (currently arraylist) that is used as a request queue to the list of elements
 //we can create new request queue and add elements to it
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
 
 public class RequestSequence {
@@ -183,5 +186,27 @@ public class RequestSequence {
         rv.head=l;
         rs.ResetIndex();
         return rv;
+    }
+
+    public static RequestSequence GenerateSequenceFromFile(String filename) {
+            RequestSequence rs = new RequestSequence();
+            try
+            {
+                HashSet<Integer> alphabet = new HashSet<Integer>();
+                BufferedReader reader = new BufferedReader(new FileReader(filename));
+                int character;
+                while ((character = reader.read()) != -1)
+                {
+                    rs.AddElement(character);
+                }
+                System.out.println("Request sequence length is: "+rs.getSize());
+            }
+            catch (Exception e)
+            {
+                System.err.format("Exception occurred trying to read '%s'.", filename);
+                e.printStackTrace();
+                return null;
+            }
+            return rs;
     }
 }
