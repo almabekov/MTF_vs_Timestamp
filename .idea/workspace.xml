@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c6248b5-35fd-4f8a-87a8-6eb0536eb554" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/book2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Implementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Implementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RequestSequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RequestSequence.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +33,8 @@
       <file leaf-file-name="Implementation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Implementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="257" column="52" selection-start-line="257" selection-start-column="52" selection-end-line="257" selection-end-column="52" />
+            <state relative-caret-position="403">
+              <caret line="299" column="21" selection-start-line="299" selection-start-column="21" selection-end-line="299" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -259,12 +260,12 @@
       <workItem from="1543770899592" duration="1940000" />
       <workItem from="1543863253654" duration="14000" />
       <workItem from="1543974009766" duration="2649000" />
-      <workItem from="1544890841636" duration="2462000" />
+      <workItem from="1544890841636" duration="3388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34565000" />
+    <option name="totallyTimeSpent" value="35491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -280,7 +281,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49934897" visible="true" weight="0.30232558" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49934897" visible="true" weight="0.2626539" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49934897" weight="0.32968536" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -722,8 +723,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Implementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="257" column="52" selection-start-line="257" selection-start-column="52" selection-end-line="257" selection-end-column="52" />
+        <state relative-caret-position="403">
+          <caret line="299" column="21" selection-start-line="299" selection-start-column="21" selection-end-line="299" selection-end-column="21" />
         </state>
       </provider>
     </entry>

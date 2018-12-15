@@ -235,27 +235,71 @@ public class Implementation {
 
 
     //Calgary corpus test
-
+        //Book1
         //MTF
         ListNode lbook = ListNode.GenerateListFromFile("book1");
         System.out.println("Printing the book alphabet");
         RequestSequence rsBook = RequestSequence.GenerateSequenceFromFile("book1");
         ReturnValues rvBookMTF = RequestSequence.serveQueueMTF(rsBook,lbook);
-        System.out.println("MTF cost to serve a book: "+rvBookMTF.counter);
+        System.out.println("MTF cost to serve a book1: "+rvBookMTF.counter);
 
         //Timestamp
         lbook = ListNode.GenerateListFromFile("book1");
         System.out.println("Printing the book alphabet");
         rsBook = RequestSequence.GenerateSequenceFromFile("book1");
         ReturnValues rvBookTimestamp = RequestSequence.serveQueueDetermenisticTimestamp(rsBook,lbook);
-        System.out.println("Timestamp cost to serve a book: "+rvBookTimestamp.counter);
+        System.out.println("Timestamp cost to serve a book1: "+rvBookTimestamp.counter);
 
         //Probabilistic Timestamp
         lbook = ListNode.GenerateListFromFile("book1");
         System.out.println("Printing the book alphabet");
         rsBook = RequestSequence.GenerateSequenceFromFile("book1");
         ReturnValues rvBookPTimestamp = RequestSequence.serveQueueProbabilisticTimestamp(rsBook,lbook,0.5f,0);
-        System.out.println("Timestamp probabilistic cost to serve a book: "+rvBookPTimestamp.counter);
+        System.out.println("Timestamp probabilistic cost to serve a book1: "+rvBookPTimestamp.counter);
+
+        //Book2
+        //MTF
+        lbook = ListNode.GenerateListFromFile("book2");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("book2");
+        rvBookMTF = RequestSequence.serveQueueMTF(rsBook,lbook);
+        System.out.println("MTF cost to serve a book2: "+rvBookMTF.counter);
+
+        //Timestamp
+        lbook = ListNode.GenerateListFromFile("book2");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("book2");
+        rvBookTimestamp = RequestSequence.serveQueueDetermenisticTimestamp(rsBook,lbook);
+        System.out.println("Timestamp cost to serve a book2: "+rvBookTimestamp.counter);
+
+        //Probabilistic Timestamp
+        lbook = ListNode.GenerateListFromFile("book2");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("book2");
+        rvBookPTimestamp = RequestSequence.serveQueueProbabilisticTimestamp(rsBook,lbook,0.5f,0);
+        System.out.println("Timestamp probabilistic cost to serve a book2: "+rvBookPTimestamp.counter);
+
+        //news
+        //MTF
+        lbook = ListNode.GenerateListFromFile("news");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("news");
+        rvBookMTF = RequestSequence.serveQueueMTF(rsBook,lbook);
+        System.out.println("MTF cost to serve a news: "+rvBookMTF.counter);
+
+        //Timestamp
+        lbook = ListNode.GenerateListFromFile("news");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("news");
+        rvBookTimestamp = RequestSequence.serveQueueDetermenisticTimestamp(rsBook,lbook);
+        System.out.println("Timestamp cost to serve a news: "+rvBookTimestamp.counter);
+
+        //Probabilistic Timestamp
+        lbook = ListNode.GenerateListFromFile("news");
+        System.out.println("Printing the book alphabet");
+        rsBook = RequestSequence.GenerateSequenceFromFile("news");
+        rvBookPTimestamp = RequestSequence.serveQueueProbabilisticTimestamp(rsBook,lbook,0.5f,0);
+        System.out.println("Timestamp probabilistic cost to serve a news: "+rvBookPTimestamp.counter);
 
     }
 
