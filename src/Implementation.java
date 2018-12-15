@@ -1,5 +1,7 @@
 import sun.misc.Request;
 
+import java.util.Random;
+
 public class Implementation {
 
     public static void main(String[] args) {
@@ -301,6 +303,10 @@ public class Implementation {
         rvBookPTimestamp = RequestSequence.serveQueueProbabilisticTimestamp(rsBook,lbook,0.5f,0);
         System.out.println("Timestamp probabilistic cost to serve a news: "+rvBookPTimestamp.counter);
 
+
+        //probabilistic sequence
+        RequestSequence rs = RequestSequence.GenerateProbabilisticSequence(10,30,0);
+        RequestSequence.PrintSequence(rs);
     }
 
 }

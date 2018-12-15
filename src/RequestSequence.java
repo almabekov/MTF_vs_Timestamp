@@ -209,4 +209,33 @@ public class RequestSequence {
             }
             return rs;
     }
+    //each element has probability equal to its value+1 (probability distribution is 0, 1, 1, 2, 2, 2, 3, 3, 3, 3 ...
+    //more value, more probability that this value will be selected
+    public static RequestSequence GenerateProbabilisticSequence(int maxvalue, int size, int seed) {
+        RequestSequence rs = new RequestSequence();
+        int[] randomArray = new int[(maxvalue*(maxvalue+1))/2];
+        int k=0;
+        System.out.println("random array size: "+randomArray.length);
+        for (int i=0;i<maxvalue;i++) {
+            for (int j=0;j<=i;j++) {
+                //System.out.print(k);
+                if (k<randomArray.length) {
+                    randomArray[k]=i;
+                }
+                k++;
+            }
+        }
+        /*
+        for (int i=0;i<randomArray.length;i++) {
+            System.out.print(randomArray[i]+" ");
+        }
+        */
+        Random rand = new Random();
+        rand.setSeed(seed);
+        for (int i=0;i<size;i++) {
+            int index = rand.nextInt((maxvalue*(maxvalue+1)/2));
+            rs.AddElement(randomArray[index]);
+        }
+        return rs;
+    }
 }
