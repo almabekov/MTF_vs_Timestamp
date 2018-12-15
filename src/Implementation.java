@@ -1,6 +1,3 @@
-import java.sql.Time;
-import java.util.Random;
-
 public class Implementation {
 
     public static void main(String[] args) {
@@ -112,6 +109,82 @@ public class Implementation {
 
 
 
+        //Test4
+        System.out.println("Test 4. List of 0-999, sequence 0-100 ten times + 0-999 one time shuffled");
+        lMTF = ListNode.generateList(1000);
+        lTimestamp = ListNode.generateList(1000);
+        lPrTimestamp = ListNode.generateList(1000);
+
+        //MTF
+        RequestSequence MTFtest4part1 = new RequestSequence();
+        RequestSequence MTFtest4part2 = new RequestSequence();
+        MTFtest4part1.GenerateRandomSequence(10000,1000,0);
+        //MTFtest4part2.GenerateConsecutiveQueue(1000,0);
+        RequestSequence MTFtest4combined = RequestSequence.MergeQueues(MTFtest4part1,MTFtest4part2);
+        MTFtest4combined.ShuffleSequence(0);
+        RequestSequence.PrintSequence(MTFtest4combined);
+        ReturnValues MTFtest4 = RequestSequence.serveQueueMTF(MTFtest4combined,lMTF);
+        System.out.println("MTF count: "+MTFtest4.counter);
+
+        //Timestamp
+        RequestSequence TimestampTest4part1 = new RequestSequence();
+        RequestSequence TimestampTest4part2 = new RequestSequence();
+        TimestampTest4part1.GenerateRandomSequence(10000,1000,0);
+        //TimestampTest4part2.GenerateConsecutiveQueue(1000,0);
+        RequestSequence TimestampTest4combined = RequestSequence.MergeQueues(TimestampTest4part1,TimestampTest4part2);
+        TimestampTest4combined.ShuffleSequence(0);
+        ReturnValues TimestampTest4 = RequestSequence.serveQueueDetermenisticTimestamp(TimestampTest4combined,lTimestamp);
+        System.out.println("Timestamp count: "+TimestampTest4.counter);
+
+        //Probabilistic Timestamp
+        RequestSequence TimestampPTest4part1 = new RequestSequence();
+        RequestSequence TimestampPTest4part2 = new RequestSequence();
+        TimestampPTest4part1.GenerateRandomSequence(10000,1000,0);
+        //TimestampPTest4part2.GenerateConsecutiveQueue(1000,0);
+        RequestSequence TimestampPTest4combined = RequestSequence.MergeQueues(TimestampPTest4part1,TimestampPTest4part2);
+        TimestampPTest4combined.ShuffleSequence(0);
+        ReturnValues TimestampPTest4 = RequestSequence.serveQueueProbabilisticTimestamp(TimestampPTest4combined,lPrTimestamp,0.5f,0);
+        System.out.println("Timestamp probabilistic count: "+TimestampPTest4.counter);
+
+
+        //Test 5
+        //0-100 9 times + 0-1000 1 time, combined shuffled.
+
+        lMTF = ListNode.generateList(1000);
+        lTimestamp = ListNode.generateList(1000);
+        lPrTimestamp = ListNode.generateList(1000);
+
+        //MTF
+        System.out.println("Test 5 0-100 9 times + 0-1000 1 time, combined shuffled.");
+        RequestSequence MTFTest5part1 = new RequestSequence();
+        RequestSequence MTFTest5part2 = new RequestSequence();
+        MTFTest5part1.GenerateRandomSequence(1000,100,0);
+        MTFTest5part2.GenerateRandomSequence(100,1000,0);
+        RequestSequence MTFTest5combined = RequestSequence.MergeQueues(MTFTest5part1,MTFTest5part2);
+        MTFTest5combined.ShuffleSequence(0);
+        ReturnValues MTFTest5 = RequestSequence.serveQueueMTF(MTFTest5combined,lMTF);
+        System.out.println("MTF count: "+MTFTest5.counter);
+
+        //Timestamp
+        RequestSequence TimestampTest5part1 = new RequestSequence();
+        RequestSequence TimestampTest5part2 = new RequestSequence();
+        TimestampTest5part1.GenerateRandomSequence(1000,100,0);
+        TimestampTest5part2.GenerateRandomSequence(100,1000,0);
+        RequestSequence TimestampTest5combined = RequestSequence.MergeQueues(TimestampTest5part1,TimestampTest5part2);
+        TimestampTest5combined.ShuffleSequence(0);
+        ReturnValues TimestampTest5 = RequestSequence.serveQueueDetermenisticTimestamp(TimestampTest5combined,lTimestamp);
+        System.out.println("Timestamp count: "+TimestampTest5.counter);
+
+
+        //Probabilistic Timestamp
+        RequestSequence TimestampPTest5part1 = new RequestSequence();
+        RequestSequence TimestampPTest5part2 = new RequestSequence();
+        TimestampPTest5part1.GenerateRandomSequence(1000,100,0);
+        TimestampPTest5part2.GenerateRandomSequence(100,1000,0);
+        RequestSequence TimestampPTest5combined = RequestSequence.MergeQueues(TimestampPTest5part1,TimestampPTest5part2);
+        TimestampPTest5combined.ShuffleSequence(0);
+        ReturnValues TimestampPTest5 = RequestSequence.serveQueueProbabilisticTimestamp(TimestampPTest5combined,lPrTimestamp,0.5f,0);
+        System.out.println("Timestamp probabilistic count: "+TimestampPTest5.counter);
 
 
         ListNode l = new ListNode(0);
@@ -141,5 +214,27 @@ public class Implementation {
         l=rv.head;
         ListNode.printList(l);
 
+
+        ListNode list = ListNode.generateList(5);
+        RequestSequence r = new RequestSequence();
+        r.AddElement(0);
+        r.AddElement(0);
+        r.AddElement(1);
+        r.AddElement(1);
+        r.AddElement(2);
+        r.AddElement(2);
+        r.AddElement(3);
+        r.AddElement(3);
+        r.AddElement(4);
+        r.AddElement(4);
+        rv=RequestSequence.serveQueueDetermenisticTimestamp(r,list);
+        System.out.println(rv.counter);
+        ListNode.printList(rv.head);
+
+
+    //Calgary corpus test
+        ListNode lbook = ListNode.GenerateListFromFile("book1");
+        System.out.println("Printing the book alphabet");
+        ListNode.printList(lbook);
     }
 }

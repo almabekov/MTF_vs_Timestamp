@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.HashSet;
 import java.util.Random;
 
 public class ListNode {
@@ -77,6 +80,47 @@ public class ListNode {
             pointer = pointer.next;
             n--;
         }
+        return head;
+    }
+    //providing the filename we create list of unique characters (alphabet),
+    //that will be then used to serve the sequence
+    public static ListNode GenerateListFromFile(String filename) {
+        ListNode l = new ListNode(0);
+        ListNode head;
+        try
+        {
+            HashSet<Integer> alphabet = new HashSet<Integer>();
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            int character;
+            while ((character = reader.read()) != 0)
+            {
+                //System.out.println(character);
+                if (!alphabet.contains(character)) {
+                    alphabet.add(character);
+                }
+            }
+            System.out.println("Alphabet size is: "+alphabet.size());
+            for (Integer i : alphabet) {
+                System.out.println(i);
+            }
+            reader.close();
+            if (alphabet.size()==0) return null;
+            head = l;
+            for (Integer i : alphabet) {
+                l.next = new ListNode(i);
+                l=l.next;
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.err.format("Exception occurred trying to read '%s'.", filename);
+            e.printStackTrace();
+            return null;
+        }
+
+
+
         return head;
     }
 }
